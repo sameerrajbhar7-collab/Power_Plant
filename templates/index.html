@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Power Plant Predictor</title>
+</head>
+<body>
+    <h1>Power Plant Output Predictor</h1>
+    <form method="POST">
+        <p>
+            <label>Ambient Temp (AT):</label>
+            <input type="number" step="any" name="at" value="{{ input_data.get('at', '') }}" required>
+        </p>
+        <p>
+            <label>Exhaust Vacuum (V):</label>
+            <input type="number" step="any" name="v" value="{{ input_data.get('v', '') }}" required>
+        </p>
+        <p>
+            <label>Ambient Pressure (AP):</label>
+            <input type="number" step="any" name="ap" value="{{ input_data.get('ap', '') }}" required>
+        </p>
+        <p>
+            <label>Relative Humidity (RH):</label>
+            <input type="number" step="any" name="rh" value="{{ input_data.get('rh', '') }}" required>
+        </p>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is not none %}
+        <h2>Predicted Energy Output (PE): {{ prediction }} MW</h2>
+    {% endif %}
+
+    {% if error %}
+        <p style="color: red;"><strong>Error:</strong> {{ error }}</p>
+    {% endif %}
+</body>
+</html>
