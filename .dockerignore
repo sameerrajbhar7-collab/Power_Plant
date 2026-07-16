@@ -1,0 +1,10 @@
+.git
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.db
+.ipynb_checkpoints/
+Power_Plant_Project.ipynb
+Dockerfile
+.dockerignore
