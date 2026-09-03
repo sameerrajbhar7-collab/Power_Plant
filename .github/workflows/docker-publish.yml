@@ -1,4 +1,4 @@
-name: Power Plant CI/CD
+name:  CI/CD 
 
 on:
   push:
@@ -10,13 +10,11 @@ on:
       - main
 
 env:
-  IMAGE_NAME: sameerrajbhar/power-plant
+  IMAGE_NAME: sameerrajbhar/genraly
 
 jobs:
 
-  # ==========================
-  # CI - TEST
-  # ==========================
+
   test:
     name: Test Application
     runs-on: ubuntu-latest
