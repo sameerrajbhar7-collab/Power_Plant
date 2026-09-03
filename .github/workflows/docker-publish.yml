@@ -10,7 +10,7 @@ on:
       - main
 
 env:
-  IMAGE_NAME: sameerrajbhar/genraly
+  IMAGE_NAME: sameerml7/genraly
 
 jobs:
 
