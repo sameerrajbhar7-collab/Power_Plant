@@ -95,7 +95,7 @@ jobs:
   # CD - AWS EC2 DEPLOYMENT
   # ==========================
   deploy:
-    name: Deploy to AWS EC2
+    name: Deploy to AWS
     needs: docker
     runs-on: ubuntu-latest
 
