@@ -8,3 +8,7 @@ __pycache__/
 Power_Plant_Project.ipynb
 Dockerfile
 .dockerignore
+.env
+venv/
+.venv/
+env/
