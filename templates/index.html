@@ -1,37 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Power Plant Predictor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My AI Assistant</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-    <h1>Power Plant Output Predictor</h1>
-    <form method="POST">
-        <p>
-            <label>Ambient Temp (AT):</label>
-            <input type="number" step="any" name="at" value="{{ input_data.get('at', '') }}" required>
-        </p>
-        <p>
-            <label>Exhaust Vacuum (V):</label>
-            <input type="number" step="any" name="v" value="{{ input_data.get('v', '') }}" required>
-        </p>
-        <p>
-            <label>Ambient Pressure (AP):</label>
-            <input type="number" step="any" name="ap" value="{{ input_data.get('ap', '') }}" required>
-        </p>
-        <p>
-            <label>Relative Humidity (RH):</label>
-            <input type="number" step="any" name="rh" value="{{ input_data.get('rh', '') }}" required>
-        </p>
-        <button type="submit">Predict</button>
-    </form>
 
-    {% if prediction is not none %}
-        <h2>Predicted Energy Output (PE): {{ prediction }} MW</h2>
-    {% endif %}
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon">
+                <i class="fa-solid fa-robot"></i>
+            </div>
+        </div>
+    </header>
 
-    {% if error %}
-        <p style="color: red;"><strong>Error:</strong> {{ error }}</p>
-    {% endif %}
+    <div class="main-container">
+        <!-- Toast for upload success -->
+        <div class="toast-notification" id="toast">File uploaded successfully!</div>
+
+        <!-- Chat messages view -->
+        <div class="chat-area" id="chat-area">
+            <!-- Messages will be added dynamically -->
+        </div>
+
+        <!-- Controls / Input Box -->
+        <div class="controls-container">
+            <div class="input-row">
+                <input type="text" class="text-input" id="message-input" placeholder="Ask me anything..."
+                    autocomplete="off">
+                <button class="send-btn" id="send-btn">
+                    <i class="fa-solid fa-paper-plane" style="margin-right: 6px;"></i>Send
+                </button>
+            </div>
+            <div class="buttons-row">
+                <button class="action-btn" id="attach-btn">
+                    <i class="fa-solid fa-paperclip"></i> Attach File
+                </button>
+                <button class="action-btn" id="image-mode-btn">
+                    <i class="fa-solid fa-image"></i> Image
+                </button>
+                <button class="action-btn" id="voice-agent-btn">
+                    <i class="fa-solid fa-microphone"></i> Voice Agent
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden file upload -->
+    <input type="file" id="file-input" accept=".pdf,.docx,.xlsx,.xls,.txt,.csv">
+
+    <!-- External Script -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+
 </html>
